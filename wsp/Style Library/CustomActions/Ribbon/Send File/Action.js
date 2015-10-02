@@ -188,7 +188,6 @@ function GetFile(list, id) {
             file.ContentType = response.d.ContentType.Name;
             file.data['ContentTypeId'] = response.d.ContentTypeId;
             file.data['__metadata'] = response.d.__metadata;
-            //file.data.__metadata.type = file.data.__metadata.type.replace(/_x0020_/, ' ');
             delete file.data['__metadata'].etag;
             delete file.data['__metadata'].id;
             delete file.data['__metadata'].uri;
@@ -301,7 +300,7 @@ function GetResultFileMetadata(parms) {
                         fileInfo.fields.push(response.d.ListItemAllFields.ParentList.Fields.results[i].InternalName.replace(/_x0020_/, ' '));
                 }
             }
-            fileInfo['type'] = response.d.ListItemAllFields.__metadata.type.replace(/_x0020_/, ' ');
+            fileInfo['type'] = response.d.ListItemAllFields.__metadata.type;
         },
         error: function (error) {
             alert(error);

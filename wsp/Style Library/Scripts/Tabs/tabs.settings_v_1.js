@@ -4,12 +4,17 @@ var currentFormUniqueId,
 	currentFormWebPartId,
     baseViewID = '',
 	listId = 'E45D8F3C-EDB3-46EF-8731-D5A8FFA3A835', //Contacts list guid
-    itemId = 0;
+    itemId = 0,
+    zones = [
+    	{tabIndex:'2', zoneId:'MSOZoneCell_WebPartWPQ3'},
+    	{tabIndex:'3', zoneId:'MSOZoneCell_WebPartWPQ4'}
+    ];
 
 var tabsObj = [ 
     ["Контактная информация", ["Code", "FundStatus", "ShortName", "WorkAddress", "WorkPhone", "_Comments", "Created", "EMail", "FullName", "ManagersName",  "Title", "WebPage"]], 
     ["Банковские реквизиты", ["Bank", "BIK", "HeadjobTitle", "HeadFL", "INN", "IFNS", "FSS_Code", "bank_corr_account", "KPP", "ORGN", "OKPO", "AuthorityBase", "bank_account", "RNS", "RN_FSS", "RN_FSS_Code", "SNILS", "HeadLN", "RegisterredAddr", "Authror", "Editor"]],
-  	["Контакты", []]
+  	["Контакты", []],
+  	["Документы", []]
 ];
 
 SP.SOD.executeFunc("clienttemplates.js", "SPClientTemplates", function() {

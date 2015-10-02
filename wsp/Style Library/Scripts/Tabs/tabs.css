@@ -1,4 +1,8 @@
-﻿.tabs { 
+﻿#DeltaPlaceHolderMain {
+	display: none;
+}
+
+.tabs { 
 border-bottom: 1px solid #ddd; 
 content: " "; 
 display: table; 
