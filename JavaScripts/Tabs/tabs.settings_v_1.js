@@ -26,6 +26,17 @@ SP.SOD.executeFunc("clienttemplates.js", "SPClientTemplates", function() {
     overrideCtx.OnPostRender = TabsOnPostRender;
     overrideCtx.Templates = {};
 
+    overrideCtx.Templates.Fields = {
+      //"FieldName": {
+        //  NewForm: <function_name>
+        //  EditForm: <function_name>
+        //},
+      "Code": {
+        NewForm: renderRequiredField,
+        EditForm: renderRequiredField
+      },
+    };
+    
     SPClientTemplates.TemplateManager.RegisterTemplateOverrides(overrideCtx); 
   }
   

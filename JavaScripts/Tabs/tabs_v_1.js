@@ -21,7 +21,8 @@ function TabsOnPreRender(ctx) {
             jQuery("#" + currentFormWebPartId).prepend("<ul class='tabs'>" + tabsHTML + "</ul>");
           	 			
           	baseViewID = ctx.BaseViewID;
-          	itemId = ctx.FormContext.itemAttributes.Id;
+            if(ctx.FormContext)
+          	   itemId = ctx.FormContext.itemAttributes.Id;
  
             jQuery('.tabs li a').on('click', function (e) { 
               var currentIndex = jQuery(this).attr('href').replace("#","");
@@ -36,8 +37,7 @@ function TabsOnPreRender(ctx) {
                   jQuery('.tasks').hide();
                   jQuery(".ms-formbody").closest('tr').hide();
                   
-                  var fond = jQuery('[id^=Title]').val();
-                  var contacts = GetContacts(fond);
+                  var contacts = GetContacts();
                   jQuery('.contacts').show();
                   if(contacts.length == 0) {
                   	jQuery('#EpmtyList').show();
@@ -62,10 +62,11 @@ function TabsOnPreRender(ctx) {
                   }
                   break;
                 case '3':
+                  jQuery('.contacts').hide();
                   jQuery(".ms-formbody").closest('tr').hide();
                   
-                  var fond = jQuery('[id^=Title]').val();
-                  var tasks = GetTasks(fond);
+//                  var fond = jQuery('[id^=Title]').val();
+                  var tasks = GetTasks();
                   jQuery('.tasks').show();
                   if(tasks.length == 0) {
                     jQuery('#EpmtyList').show();
@@ -133,7 +134,7 @@ function showTabControls(index)
   }
 }
 
-function GetContacts(fond) {
+function GetContacts() {
   var host = _spPageContextInfo.webAbsoluteUrl;
   var contacts = [];
   jQuery.ajax({
@@ -163,7 +164,7 @@ function GetContacts(fond) {
   return contacts;
 }
 
-function GetTasks(fond) {
+function GetTasks() {
   var host = _spPageContextInfo.webAbsoluteUrl;
   var tasks = [];
   jQuery.ajax({

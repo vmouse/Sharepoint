@@ -6,7 +6,7 @@
 			//	NewForm: <function_name>
 			//	EditForm: <function_name>
 			//},
-		"Title": {
+		"Code0": {
 			NewForm: renderRequiredField,
 			EditForm: renderRequiredField
 		},
