@@ -43,6 +43,7 @@ function TabsOnPreRender(ctx) {
               switch(currentIndex) {
                 case '0':
                 case '1':
+                case '2':
                   hideAllZones();
                   jQuery("input[id$='GoBack']").closest('table').closest('tr').closest('table').closest('tr').closest('table').show();
                   jQuery("input[id$='GoBack']").closest('table').closest('tr').closest('table').closest('tr').closest('table').prev().show();

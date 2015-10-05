@@ -11,10 +11,11 @@ var currentFormUniqueId,
     	{tabIndex:'5', zoneId:'MSOZoneCell_WebPartWPQ3'}  // Fund's dosuments
     ];
 
+
 var tabsObj = [ 
-    ["Контактная информация", ["Code", "FundStatus", "ShortName", "WorkAddress", "WorkPhone", "_Comments", "Created", "EMail", "FullName", "ManagersName",  "Title", "WebPage"]], 
-    ["Банковские реквизиты", ["Bank", "BIK", "HeadjobTitle", "HeadFL", "INN", "IFNS", "FSS_Code", "bank_corr_account", "KPP", "ORGN", "OKPO", "AuthorityBase", "bank_account", "RNS", "RN_FSS", "RN_FSS_Code", "SNILS", "HeadLN", "RegisterredAddr", "Authror", "Editor"]],
-  	["Taxcom", ["HeadjobTitle", "HeadFL", "IFNS", "FSS_Code", "ORGN", "OKPO", "AuthorityBase", "RNS", "RN_FSS", "RN_FSS_Code", "SNILS", "HeadLN", "RegisterredAddr", "Authror", "Editor"]],
+    ["Контактная информация", ["Code", "FundStatus", "ShortName", "RegisterredAddr", "WorkAddress", "WorkPhone", "_Comments", "Created", "EMail", "FullName", "ManagersName",  "Title", "Founder", "WebPage"]], 
+    ["Банковские реквизиты", ["INN", "KPP", "Bank", "BIK", "bank_account", "bank_corr_account", "RegisterredAddr", "Authror", "Editor"]],
+  	["Taxcom", ["HeadjobTitle", "HeadLN", "HeadFL", "AuthorityBase", "IFNS", "FSS_Code", "ORGN", "OKPO", "RNS", "RN_FSS", "RN_FSS_Code", "SNILS", "CreateTasks", "Authror", "Editor"]],
     ["Контакты", []],
   	["Задачи", []],
   	["Документы", []]
