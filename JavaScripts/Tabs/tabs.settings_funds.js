@@ -6,15 +6,16 @@ var currentFormUniqueId,
 //	listId = 'E45D8F3C-EDB3-46EF-8731-D5A8FFA3A835', //Contacts list guid
     itemId = 0,
     zones = [
-    	{tabIndex:'2', zoneId:'MSOZoneCell_WebPartWPQ4'}, // Fund's contacts
-    	{tabIndex:'3', zoneId:'MSOZoneCell_WebPartWPQ5'}, // Fund's tasks
-    	{tabIndex:'4', zoneId:'MSOZoneCell_WebPartWPQ3'}  // Fund's dosuments
+    	{tabIndex:'3', zoneId:'MSOZoneCell_WebPartWPQ4'}, // Fund's contacts
+    	{tabIndex:'4', zoneId:'MSOZoneCell_WebPartWPQ5'}, // Fund's tasks
+    	{tabIndex:'5', zoneId:'MSOZoneCell_WebPartWPQ3'}  // Fund's dosuments
     ];
 
 var tabsObj = [ 
     ["Контактная информация", ["Code", "FundStatus", "ShortName", "WorkAddress", "WorkPhone", "_Comments", "Created", "EMail", "FullName", "ManagersName",  "Title", "WebPage"]], 
     ["Банковские реквизиты", ["Bank", "BIK", "HeadjobTitle", "HeadFL", "INN", "IFNS", "FSS_Code", "bank_corr_account", "KPP", "ORGN", "OKPO", "AuthorityBase", "bank_account", "RNS", "RN_FSS", "RN_FSS_Code", "SNILS", "HeadLN", "RegisterredAddr", "Authror", "Editor"]],
-  	["Контакты", []],
+  	["Taxcom", ["HeadjobTitle", "HeadFL", "IFNS", "FSS_Code", "ORGN", "OKPO", "AuthorityBase", "RNS", "RN_FSS", "RN_FSS_Code", "SNILS", "HeadLN", "RegisterredAddr", "Authror", "Editor"]],
+    ["Контакты", []],
   	["Задачи", []],
   	["Документы", []]
 ];
@@ -31,14 +32,18 @@ SP.SOD.executeFunc("clienttemplates.js", "SPClientTemplates", function() {
     overrideCtx.OnPostRender = TabsOnPostRender;
     overrideCtx.Templates = {};
   
-//    overrideCtx.Templates.Fields = {
-    //"FieldName": {
-      //  NewForm: <function_name>
-      //  EditForm: <function_name>
-      //},
-    "Code0": {
-      NewForm: renderRequiredField,
-      EditForm: renderRequiredField
+    overrideCtx.Templates.Fields = {
+    "Title": {
+        NewForm: renderRequiredField,
+        EditForm: renderRequiredField
+      },
+    "Code": {
+        NewForm: renderRequiredField,
+        EditForm: renderRequiredField
+      },
+    "INN": {
+        NewForm: renderRequiredField,
+        EditForm: renderRequiredField
       },
     };
 
