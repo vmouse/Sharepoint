@@ -12,7 +12,11 @@ function initUserPicker() {
 		newValue = peoplePicker.GetAllUserInfo();
 		if (newValue.length === 1) {
 	        $("input[id^='Title_']").val(newValue[0].DisplayText);
-	    } else {$("input[id^='Title_']").val('');}
+	        $("input[id^='email_']").val(newValue[0].EntityData['Email']);
+	    } else {
+	    	$("input[id^='Title_']").val('');
+	        $("input[id^='email_']").val('');
+	    }
 	}
 }
 
@@ -20,8 +24,9 @@ function initUserPicker() {
 /*
 $(document).ready(function(){
 	$('body').on('input', "[id^='Employee_']", function () {
-		newValue = $.parseJSON($("input[name^='Employee_']").val());
+		newValue = $.parseJSON($("input[id^='Employee_']").val());
         $("input[id^='Title_']").val(newValue[0].DisplayText);
     });
 });
 */
+

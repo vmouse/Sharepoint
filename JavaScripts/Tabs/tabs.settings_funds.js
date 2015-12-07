@@ -8,7 +8,7 @@ var currentFormUniqueId,
     zones = [
     	{tabIndex:'3', zoneId:'MSOZoneCell_WebPartWPQ4'}, // Fund's contacts
     	{tabIndex:'4', zoneId:'MSOZoneCell_WebPartWPQ5'}, // Fund's tasks
-    	{tabIndex:'5', zoneId:'MSOZoneCell_WebPartWPQ3'}  // Fund's dosuments
+    	{tabIndex:'5', zoneId:'MSOZoneCell_WebPartWPQ3'}  // Fund's documents
     ];
 
 

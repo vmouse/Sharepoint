@@ -1,12 +1,12 @@
-﻿(function () {
+(function () {
 	var overrideCtx = {};
 	overrideCtx.Templates = {};
 	overrideCtx.Templates.Fields = {
-		//"FieldName": {
-			//	NewForm: <function_name>
-			//	EditForm: <function_name>
-			//},
-		"Title": {
+		"Code": {
+			NewForm: renderRequiredField,
+			EditForm: renderRequiredField
+			},
+		"INN": {
 			NewForm: renderRequiredField,
 			EditForm: renderRequiredField
 		},

@@ -1,4 +1,4 @@
-﻿var busy = false;
+var busy = false;
 var rf_listId = '';
 var delayTime = 2000;
 

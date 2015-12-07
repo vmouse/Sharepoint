@@ -36,11 +36,11 @@ SP.SOD.executeFunc("clienttemplates.js", "SPClientTemplates", function() {
       //  NewForm: <function_name>
       //  EditForm: <function_name>
       //},
-    "Code0": {
-      NewForm: renderRequiredField,
-      EditForm: renderRequiredField
-      },
-    };
+//    "Code": {
+//      NewForm: renderRequiredField,
+//      EditForm: renderRequiredField
+//      },
+//    };
 
     SPClientTemplates.TemplateManager.RegisterTemplateOverrides(overrideCtx); 
   }

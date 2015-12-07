@@ -1,4 +1,8 @@
-﻿.tabs { 
+﻿#DeltaPlaceHolderMain {
+	display: none;
+}
+
+.tabs { 
 border-bottom: 1px solid #ddd; 
 content: " "; 
 display: table; 
@@ -41,10 +45,6 @@ width: 100%;
 	padding: 10px;
 }
 
-.tasks {
-    padding: 10px;
-}
-
 tr[id~="tr_"] {
 	display: none;
 }
@@ -55,11 +55,4 @@ tr[id~="tr_"] {
 }
 #Contacts tr:hover {
 	background-color: rgba( 156,206,240,0.5 );
-}
-#Tasks {
-    cell-spacing: 0px;
-    border-spacing: 0px;
-}
-#Tasks tr:hover {
-    background-color: rgba( 156,206,240,0.5 );
 }
