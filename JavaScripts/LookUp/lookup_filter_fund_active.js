@@ -1,4 +1,4 @@
-﻿var listInnerName = "Funds";
+var listInnerName = "Funds";
 var filterField = "FundStatus";
 var filterValue = encodeURI("Прочие фонды");
 var filterOperation = 'ne';
@@ -9,7 +9,7 @@ var filterOperation = 'ne';
     renderCtx.Templates.Fields = {
         "Fund": { "NewForm": renderFund, "EditForm": renderFund},
     };
-        
+
     SPClientTemplates.TemplateManager.RegisterTemplateOverrides(renderCtx);
 })();
 

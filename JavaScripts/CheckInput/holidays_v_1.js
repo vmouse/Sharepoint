@@ -38,6 +38,12 @@ function OnPickerFinish(resultfield)
 			if (typeof resultfield.ondatepickerclose == "function") resultfield.ondatepickerclose();
 			else eval(resultfield.ondatepickerclose);
 	clickDatePicker(null, "", "", null)
+
+	var sd = $("input[id^='StopDate_']").val();
+	if (sd == "") {
+		$("input[id^='StopDate_']").val($("input[id^='StartDate_']").val());
+	}
+
 	$("input[id^='Days_']").val(dateDiff($("input[id^='StopDate_']").val(), $("input[id^='StartDate_']").val()));
 }
 
