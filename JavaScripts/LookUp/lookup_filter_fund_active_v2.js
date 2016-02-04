@@ -1,20 +1,30 @@
-var FundsList = 'Фонды';
-var FundsView = 'Основные фонды';
-
+var ListName = 'Фонды';
+var ListView = 'Основные фонды';
+var UseRootWeb = true;
 
 (function () {
 	var renderCtx = {};
     renderCtx.Templates = {};
     renderCtx.Templates.Fields = {
-        "Fund": { "NewForm": renderFund, "EditForm": renderFund},
+        "Fund": { "NewForm": renderItem, "EditForm": renderItem},
     };
 
     SPClientTemplates.TemplateManager.RegisterTemplateOverrides(renderCtx);
 })();
 
 
-function getListItems(webUrl, listTitle, queryText)
+function getCurrentWebUrl() {
+    if (UseRootWeb) {
+        return _spPageContextInfo.siteAbsoluteUrl;
+    }  else {
+        return _spPageContextInfo.webAbsoluteUrl;
+    }
+}
+
+function getListItems(listTitle, queryText, webUrl)
 {
+    webUrl = webUrl || getCurrentWebUrl();
+
     var viewXml = '<View><Query>' + queryText + '</Query></View>';
     var url = webUrl + "/_api/web/lists/getbytitle('" + listTitle + "')/getitems";
     var queryPayload = {
@@ -27,13 +37,15 @@ function getListItems(webUrl, listTitle, queryText)
 }
 
 
-function getListViewItems(webUrl, listTitle, viewTitle)
+function getListViewItems(listTitle, viewTitle, webUrl)
 {
+    webUrl = webUrl || getCurrentWebUrl();
+
     var url = webUrl + "/_api/web/lists/getByTitle('" + listTitle + "')/Views/getbytitle('" + viewTitle + "')/ViewQuery";
     return executeJson(url).then(
         function(data){
             var viewQuery = data.d.ViewQuery;
-            return getListItems(webUrl,listTitle,viewQuery);
+            return getListItems(listTitle, viewQuery, webUrl);
         });
 }
 
@@ -62,10 +74,9 @@ function executeJson(url, method, headers, payload, asyncCall)
 }
 
 
-function renderFund(ctx){
+function renderItem(ctx){
 
 	var formCtx = SPClientTemplates.Utility.GetFormContextForCurrentField(ctx);
-    FundsSite = _spPageContextInfo.siteAbsoluteUrl;
 
  	 formCtx.registerGetValueCallback(formCtx.fieldName, function () {
         if ($("[id$=" + formCtx.fieldName + "] option:selected").length != 0) {
@@ -81,7 +92,7 @@ function renderFund(ctx){
     var fieldHtml = '<select ';
     fieldHtml += 'id="' + formCtx.fieldName + '">';
 
-    getListViewItems(FundsSite, FundsList, FundsView)
+    getListViewItems(ListName, ListView)
         .done(function(data)
         {
             var items = data.d.results;
